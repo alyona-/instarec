@@ -1,10 +1,18 @@
 import React, {Component}  from 'react';
 
+import User from "./User";
+
 
 export default class Post extends Component{
     render (){
         return (
             <div className="post">
+                <User
+                    src="https://whatsapp-help.com/wp-content/uploads/2019/07/11-min.jpg"
+                      alt="man"
+                      name="Alyona"
+                     min={true}
+                />
                 <img src={this.props.src} alt={this.props.alt}></img>
 
                 <div className="post__name">
