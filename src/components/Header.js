@@ -7,7 +7,7 @@ export default class Header extends Component {
             <header>
                 <div className="container h-flex">
                     <a href="#" className="logo">
-                        <img src={logo} alt="logo"/>
+                        <img src={logo} alt="logo" />
                     </a>
                     <nav className="links">
                         <ul>
@@ -15,7 +15,7 @@ export default class Header extends Component {
                             <a href="#" className="menu__links">Лента</a>
                             </li>
                             <li>
-                                <a href="#" className="menu__links">Лента</a>
+                                <a href="#" className="menu__links">Профиль</a>
                             </li>
                         </ul>
                     </nav>
