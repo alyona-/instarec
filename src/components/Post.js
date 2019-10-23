@@ -20,10 +20,11 @@ export default class Post extends Component{
                 </div>
 
                 <div className="post__descr">
-                    lorem ipsim  edrkewl jewklr wekrj wewejkr ekw rweklrjwekl rekwwewe
-                    r werwe rwe rwe ew we weqewrqwer wer we. qwrweqrqwerqwer wqer wer wer
-                     werweq wer qwer wer qwer weqr weqqwetytrytrytr rty ytry try
-                    try tr ytrytry
+                    Равным образом, укрепление и развитие внутренней структуры позволяет выполнить важные задания по разработке
+                    системы обучения кадров, соответствующей насущным потребностям. Мы вынуждены отталкиваться от того, что
+                    повышение уровня гражданского сознания играет важную роль в формировании своевременного выполнения
+                    сверхзадачи. В частности, разбавленное изрядной долей эмпатии, рациональное мышление требует от нас анализа
+                    позиций, занимаемых участниками в отношении поставленных задач.
                 </div>
             </div>
         )
