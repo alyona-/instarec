@@ -1,14 +1,78 @@
 import React, {Component}  from 'react';
 
 import Post from "./Post";
+import InstaService from "../services/instaService";
+import User from "./User";
+import ErrorMessage from "./Error";
 
 export default class Posts extends Component {
+    InstaService = new InstaService();
+    state = {
+        posts: [],
+        error: false
+    };
+
+    componentDidMount() {
+        this.updatePosts();
+    }
+
+    updatePosts(){
+        this.InstaService.getAllPosts()
+            .then(this.onPostsLoaded)
+            .catch(this.onError);
+    }
+    renderItems(arr) {
+        return arr.map( item => {
+           const {name, altname, photo, src, descr, id} = item;
+
+           return (
+               <div key ={id} className="post">
+                   <User
+                       src={photo}
+                       alt={altname}
+                       name={name}
+                       min
+                   />
+                   <img src={src} alt={altname}></img>
+
+                   <div className="post__name">
+                       {name}
+                   </div>
+
+                   <div className="post__descr">
+                       {descr}
+                   </div>
+               </div>
+           )
+        });
+    }
+
+    onPostsLoaded = (posts) =>{
+        this.setState({
+            posts: posts,
+            error: false
+        });
+
+        console.log(this.state.posts);
+    };
+
+    onError =(err) => {
+        this.setState({
+            error: true
+        })
+    };
+
     render () {
+        const {error, posts} = this.state;
+
+        if(error){
+            return <ErrorMessage/>
+        }
+
+        const items = this.renderItems(posts);
         return (
             <div className="left ">
-                <Post src="https://avatars.mds.yandex.net/get-pdb/234183/7bd2c3e7-18cb-4b11-895d-348260ff70c5/s1200" alt="inst" />
-                <Post src="https://avatars.mds.yandex.net/get-pdb/69339/65019230-kartinki-21-tys-izobrazhenii-naideno-v-iandeks-kartinkakh-1468000370.26/s1200" alt="inst" />
-                <Post src="https://im0-tub-ru.yandex.net/i?id=88af34a3c71847da095266b0ec56af68&n=33&w=427&h=320" alt="inst" />
+                {items}
             </div>
         )
     }
